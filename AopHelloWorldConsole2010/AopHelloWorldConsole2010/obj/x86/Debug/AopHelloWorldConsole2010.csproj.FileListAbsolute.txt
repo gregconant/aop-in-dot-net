@@ -1,0 +1,9 @@
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\Debug\AopHelloWorldConsole2010.exe
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\Debug\AopHelloWorldConsole2010.pdb
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\Debug\PostSharp.dll
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\Debug\PostSharp.xml
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\Debug\AopHelloWorldConsole2010.pssym
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\obj\x86\Debug\AopHelloWorldConsole2010.csprojResolveAssemblyReference.cache
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\obj\x86\Debug\AopHelloWorldConsole2010.exe
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\obj\x86\Debug\AopHelloWorldConsole2010.pdb
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\obj\x86\Debug\AopHelloWorldConsole2010.exe.postsharp

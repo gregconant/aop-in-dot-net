@@ -1,0 +1,9 @@
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\_tmpIntermediateAT\AopHelloWorldConsole2010.csprojResolveAssemblyReference.cache
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\_tmpIntermediateAT\AopHelloWorldConsole2010.exe
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\_tmpIntermediateAT\AopHelloWorldConsole2010.pdb
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\AopHelloWorldConsole2010.exe
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\AopHelloWorldConsole2010.pdb
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\PostSharp.dll
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\PostSharp.xml
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\AopHelloWorldConsole2010.pssym
+C:\development\demos\AopInDotNet\AopHelloWorldConsole2010\AopHelloWorldConsole2010\bin\AutoTest.Net\_tmpIntermediateAT\AopHelloWorldConsole2010.exe.postsharp
