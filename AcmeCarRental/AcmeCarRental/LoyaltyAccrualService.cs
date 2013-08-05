@@ -12,13 +12,11 @@ namespace AcmeCarRental {
 
   public class LoyaltyAccrualService : ILoyaltyAccrualService {
     private readonly ILoyaltyDataService service;
-    private readonly IExceptionHandler exceptionHandler;
     private readonly ITransactionManager transactionManager;
 
     // constructor getting pretty cluttered
-    public LoyaltyAccrualService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler, ITransactionManager transactionManager) {
+    public LoyaltyAccrualService(ILoyaltyDataService dataService, ITransactionManager transactionManager) {
       this.transactionManager = transactionManager;
-      this.exceptionHandler = exceptionHandler;
       this.service = dataService;
     }
 
@@ -35,7 +33,6 @@ namespace AcmeCarRental {
       Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
 
       // use dependencies
-      exceptionHandler.Wrapper(() =>
        transactionManager.Wrapper(() => {
 
          var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
@@ -50,7 +47,7 @@ namespace AcmeCarRental {
 
          // logging
          Console.WriteLine("Accrue complete: {0}", DateTime.Now);
-       }));
+       });
     }
   }
 }

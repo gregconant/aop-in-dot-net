@@ -9,28 +9,29 @@ namespace AcmeCarRental {
     void Wrapper(Action method);
   }
 
-
   public class TransactionManager : ITransactionManager {
     public void Wrapper(Action method) {
       using (var scope = new TransactionScope()) {
         var retries = 3;
         var succeeded = false;
-        try {
-          while (!succeeded) {
+        while (!succeeded) {
+          try {
             method();
             scope.Complete();
+            succeeded = true;
+          }
+          catch (Exception ex) {
+            // don't rethrow until retry limit is reached
+            if (retries >= 0) {
+              retries = retries - 1;
+            }
+            else {
+              if (!ExceptionHandler.Handle(ex)) {
+                throw;
+              }
+            }
           }
         }
-        catch {
-          // don't rethrow until retry limit is reached
-          if (retries >= 0) {
-            retries = retries - 1;
-          }
-          else {
-            throw;
-          }
-        }
-
       }
     }
   }

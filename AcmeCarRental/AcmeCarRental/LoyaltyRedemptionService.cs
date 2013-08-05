@@ -12,13 +12,11 @@ namespace AcmeCarRental {
 
   public class LoyaltyRedemptionService : ILoyaltyRedemptionService {
     private readonly ILoyaltyDataService service;
-    private readonly IExceptionHandler exceptionHandler;
     private readonly ITransactionManager transactionManager;
 
     // constructor getting pretty cluttered
-    public LoyaltyRedemptionService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler, ITransactionManager transactionManager) {
+    public LoyaltyRedemptionService(ILoyaltyDataService dataService, ITransactionManager transactionManager) {
       this.transactionManager = transactionManager;
-      this.exceptionHandler = exceptionHandler;
       this.service = dataService;
     }
 
@@ -36,7 +34,6 @@ namespace AcmeCarRental {
       Console.WriteLine("Invoice: {0}", invoice.Id);
 
       // use dependencies
-      exceptionHandler.Wrapper(() => 
         transactionManager.Wrapper(() => {
         var pointsPerDay = 10;
         if (invoice.Vehicle.Size >= Size.Luxury) {
@@ -50,7 +47,7 @@ namespace AcmeCarRental {
         // logging
         Console.WriteLine("Redeem complete: {0}", DateTime.Now);
 
-      }));
+      });
     }
   }
 
