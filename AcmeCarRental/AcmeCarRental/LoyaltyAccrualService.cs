@@ -11,11 +11,15 @@ namespace AcmeCarRental {
   }
 
   public class LoyaltyAccrualService : ILoyaltyAccrualService {
-    private readonly ILoyaltyDataService _loyaltyDataService;
+    private readonly ILoyaltyDataService service;
+    private readonly IExceptionHandler exceptionHandler;
+    private readonly ITransactionManager transactionManager;
 
-    public LoyaltyAccrualService(ILoyaltyDataService service) {
-      _loyaltyDataService = service;
-
+    public LoyaltyAccrualService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler,
+                                 ITransactionManager transactionManager) {
+      this.transactionManager = transactionManager;
+      this.exceptionHandler = exceptionHandler;
+      this.service = dataService;
     }
 
     public void Accrue(RentalAgreement agreement) {
@@ -30,50 +34,25 @@ namespace AcmeCarRental {
       Console.WriteLine("Customer: {0}", agreement.Customer.Id);
       Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
 
-      try {
+      // use dependencies
+      exceptionHandler.Wrapper(() =>
+       transactionManager.Wrapper(() =>{
 
-        // start transaction
-        using (var scope = new TransactionScope()) {
-          var retries = 3;
-          var succeeded = false;
-          while (!succeeded) {
+         var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
+         var numberOfDays = (int) Math.Floor(rentalTimeSpan.TotalDays);
 
-            try {
+         var pointsPerDay = 1;
+         if (agreement.Vehicle.Size >= Size.Luxury) {
+           pointsPerDay = 2;
+         }
+         var points = numberOfDays*pointsPerDay;
+         service.AddPoints(agreement.Customer.Id, points);
 
-              var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
-              var numberOfDays = (int) Math.Floor(rentalTimeSpan.TotalDays);
-
-              var pointsPerDay = 1;
-              if (agreement.Vehicle.Size >= Size.Luxury) {
-                pointsPerDay = 2;
-              }
-              var points = numberOfDays*pointsPerDay;
-              _loyaltyDataService.AddPoints(agreement.Customer.Id, points);
-
-              //transactions
-              scope.Complete();
-              succeeded = true;
-
-              // logging
-              Console.WriteLine("Accrue complete: {0}", DateTime.Now);
-            }
-            catch {
-              // don't rethrow until retry limit is reached
-              if (retries >= 0) {
-                retries = retries - 1;
-              }
-              else {
-                throw; // no Complete -- this will roll back the whole transaction
-              }
-            }
-          }
-        }
-      } // end outer try
-      catch (Exception ex) {
-        if (!ExceptionHandler.Handle(ex))
-          throw;
-      }
+         // logging
+         Console.WriteLine("Accrue complete: {0}", DateTime.Now);
+       }));
     }
   }
 }
-// so many curly braces! }}}}}}}}}
+
+// fewer curly braces!

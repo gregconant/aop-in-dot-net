@@ -29,7 +29,7 @@ namespace AcmeCarRentalUI {
     }
 
     private static void SimulateAddingPoints() {
-      var service = new LoyaltyAccrualService(_service);
+      var service = new LoyaltyAccrualService(_service, new ExceptionHandler(), new TransactionManager());
       var rentalAgreement = new RentalAgreement {
         Customer = new Customer {
           Id = Guid.NewGuid(),
@@ -54,7 +54,7 @@ namespace AcmeCarRentalUI {
     }
 
     private static void SimulateRemovingPoints() {
-      var service = new LoyaltyRedemptionService(_service);
+      var service = new LoyaltyRedemptionService(_service, new ExceptionHandler(), new TransactionManager());
       var invoice = new Invoice {
         Customer = new Customer {
           Id = Guid.NewGuid(),

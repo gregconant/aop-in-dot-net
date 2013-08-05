@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 
 namespace AcmeCarRental {
-  public class ExceptionHandler {
-    public static bool Handle(Exception ex) {
-      Console.WriteLine("Exception handler doing something");
-      return true;
+  public interface IExceptionHandler {
+    void Wrapper(Action method);
+  }
+
+  public class ExceptionHandler : IExceptionHandler {
+    public void Wrapper(Action method) {
+      try {
+        method();
+      }
+      catch (Exception ex) {
+        Console.WriteLine("Exception handler handling exception {0}", ex.Message);
+      }
     }
   }
 }
