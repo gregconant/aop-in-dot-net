@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\ILoggable.cs" />
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\RentalAgreement.cs" />
     <Compile Include="Entities\Vehicle.cs" />

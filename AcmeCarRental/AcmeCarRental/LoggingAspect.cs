@@ -12,15 +12,13 @@ namespace AcmeCarRental {
       Console.WriteLine("{0}: {1}", args.Method.Name, DateTime.Now);
 
       foreach (var argument in args.Arguments) {
-        if (argument.GetType() == typeof (RentalAgreement)) {
-          Console.WriteLine("Customer: {0}", ((RentalAgreement)argument).Customer.Id);
-          Console.WriteLine("Vehicle: {0}", ((RentalAgreement)argument).Vehicle.Id);
+        if (argument != null) {
+          if (argument is ILoggable) {
+            Console.WriteLine(
+              ((ILoggable)argument).LogInformation());
+          }
         }
-        
-        if (argument.GetType() == typeof (Invoice)) {
-          Console.WriteLine("Invoice: {0}", ((Invoice)argument).Id);
-        }
-       
+
         // This isn't great because the aspect has to know about all of the classes it may have
         // to log, and will require a lot of maintenance as new classes and messages
         // are needed
