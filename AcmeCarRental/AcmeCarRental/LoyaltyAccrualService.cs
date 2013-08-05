@@ -19,6 +19,11 @@ namespace AcmeCarRental {
     }
 
     public void Accrue(RentalAgreement agreement) {
+      // logging
+      Console.WriteLine("Accrue: {0}", DateTime.Now);
+      Console.WriteLine("Customer: {0}", agreement.Customer.Id);
+      Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
+
       var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
       var numberOfDays = (int) Math.Floor(rentalTimeSpan.TotalDays);
 
@@ -28,6 +33,9 @@ namespace AcmeCarRental {
       }
       var points = numberOfDays*pointsPerDay;
       _loyaltyDataService.AddPoints(agreement.Customer.Id, points);
+      
+      // logging
+      Console.WriteLine("Accrue complete: {0}", DateTime.Now);
     }
   }
 
