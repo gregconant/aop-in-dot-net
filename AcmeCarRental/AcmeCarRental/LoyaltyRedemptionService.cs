@@ -15,6 +15,7 @@ namespace AcmeCarRental {
     private readonly IExceptionHandler exceptionHandler;
     private readonly ITransactionManager transactionManager;
 
+    // constructor getting pretty cluttered
     public LoyaltyRedemptionService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler, ITransactionManager transactionManager) {
       this.transactionManager = transactionManager;
       this.exceptionHandler = exceptionHandler;

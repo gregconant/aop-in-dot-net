@@ -15,8 +15,8 @@ namespace AcmeCarRental {
     private readonly IExceptionHandler exceptionHandler;
     private readonly ITransactionManager transactionManager;
 
-    public LoyaltyAccrualService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler,
-                                 ITransactionManager transactionManager) {
+    // constructor getting pretty cluttered
+    public LoyaltyAccrualService(ILoyaltyDataService dataService, IExceptionHandler exceptionHandler, ITransactionManager transactionManager) {
       this.transactionManager = transactionManager;
       this.exceptionHandler = exceptionHandler;
       this.service = dataService;
@@ -36,16 +36,16 @@ namespace AcmeCarRental {
 
       // use dependencies
       exceptionHandler.Wrapper(() =>
-       transactionManager.Wrapper(() =>{
+       transactionManager.Wrapper(() => {
 
          var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
-         var numberOfDays = (int) Math.Floor(rentalTimeSpan.TotalDays);
+         var numberOfDays = (int)Math.Floor(rentalTimeSpan.TotalDays);
 
          var pointsPerDay = 1;
          if (agreement.Vehicle.Size >= Size.Luxury) {
            pointsPerDay = 2;
          }
-         var points = numberOfDays*pointsPerDay;
+         var points = numberOfDays * pointsPerDay;
          service.AddPoints(agreement.Customer.Id, points);
 
          // logging
