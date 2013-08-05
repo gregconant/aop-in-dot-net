@@ -74,6 +74,7 @@ namespace AcmeCarRentalUI {
         Id = Guid.NewGuid()
       };
       service.Redeem(invoice, 3);
+      service.Redeem(invoice, -1);
     }
   }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Transactions;
+using AcmeCarRental.Aspects;
 using AcmeCarRental.Entities;
 
 namespace AcmeCarRental {
@@ -21,6 +22,7 @@ namespace AcmeCarRental {
     }
 
     [LoggingAspect]
+    [DefensiveProgrammingAspect]
     public void Accrue(RentalAgreement agreement) {
 
       // defense! defense! defense!

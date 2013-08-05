@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using AcmeCarRental.Entities;
 using PostSharp.Aspects;
 
-namespace AcmeCarRental {
+namespace AcmeCarRental.Aspects {
   [Serializable]
   public class LoggingAspect : OnMethodBoundaryAspect {
     public override void OnEntry(MethodExecutionArgs args) {

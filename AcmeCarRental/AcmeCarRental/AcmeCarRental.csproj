@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\DefensiveProgrammingAspect.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\ILoggable.cs" />
     <Compile Include="Entities\Invoice.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="ExceptionHandler.cs" />
     <Compile Include="FakeLoyaltyDataService.cs" />
-    <Compile Include="LoggingAspect.cs" />
+    <Compile Include="Aspects\LoggingAspect.cs" />
     <Compile Include="LoyaltyAccrualService.cs" />
     <Compile Include="LoyaltyDataService.cs" />
     <Compile Include="LoyaltyRedemptionService.cs" />
