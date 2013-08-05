@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Transactions;
 using AcmeCarRental.Entities;
 
 namespace AcmeCarRental {
@@ -17,22 +18,50 @@ namespace AcmeCarRental {
     }
 
     public void Redeem(Invoice invoice, int numberOfDays) {
+      // defense! defense! defense!
+      if (invoice == null) {
+        throw new ArgumentNullException("invoice");
+      }
+      if (numberOfDays <= 0) {
+        throw new ArgumentException("Number of days must be greater than zero.", "numberOfDays");
+      }
+
       // logging
       Console.WriteLine("Redeem: {0}", DateTime.Now);
       Console.WriteLine("Invoice: {0}", invoice.Id);
 
-      var pointsPerDay = 10;
-      if (invoice.Vehicle.Size >= Size.Luxury) {
-        pointsPerDay = 15;
+      // start new transaction
+      using (var scope = new TransactionScope()) {
+        var retries = 3;
+        var succeeded = false;
+        while (!succeeded) {
+
+          try {
+
+            var pointsPerDay = 10;
+            if (invoice.Vehicle.Size >= Size.Luxury) {
+              pointsPerDay = 15;
+            }
+            var points = numberOfDays*pointsPerDay;
+
+            _service.SubtractPoints(invoice.Customer.Id, points);
+            invoice.Discount = numberOfDays*invoice.CostPerDay;
+
+            // logging
+            Console.WriteLine("Redeem complete: {0}", DateTime.Now);
+          }
+          catch {
+            // don't rethrow until retry limit is reached
+            if (retries >= 0) {
+              retries = retries - 1;
+            }
+            else {
+              throw;
+            }
+          }
+        }
+
       }
-      var points = numberOfDays*pointsPerDay;
-
-      _service.SubtractPoints(invoice.Customer.Id, points);
-      invoice.Discount = numberOfDays*invoice.CostPerDay;
-      
-      // logging
-      Console.WriteLine("Redeem complete: {0}", DateTime.Now);
-
     }
   }
 }

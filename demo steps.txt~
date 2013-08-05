@@ -3,5 +3,3 @@
    a. console logging
    b. manual defensive programming checks on Accrue and Redeem
    c. Transactions and retries
-   d. Handling exceptions
-
