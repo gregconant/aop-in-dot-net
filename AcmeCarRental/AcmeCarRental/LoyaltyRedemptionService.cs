@@ -20,6 +20,7 @@ namespace AcmeCarRental {
       this.service = dataService;
     }
 
+    [LoggingAspect]
     public void Redeem(Invoice invoice, int numberOfDays) {
       // defense! defense! defense!
       if (invoice == null) {
@@ -29,9 +30,7 @@ namespace AcmeCarRental {
         throw new ArgumentException("Number of days must be greater than zero.", "numberOfDays");
       }
 
-      // logging
-      Console.WriteLine("Redeem: {0}", DateTime.Now);
-      Console.WriteLine("Invoice: {0}", invoice.Id);
+      // logging has been put in the aspect
 
       // use dependencies
         transactionManager.Wrapper(() => {
@@ -43,9 +42,6 @@ namespace AcmeCarRental {
 
         service.SubtractPoints(invoice.Customer.Id, points);
         invoice.Discount = numberOfDays * invoice.CostPerDay;
-
-        // logging
-        Console.WriteLine("Redeem complete: {0}", DateTime.Now);
 
       });
     }

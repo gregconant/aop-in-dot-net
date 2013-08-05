@@ -20,6 +20,7 @@ namespace AcmeCarRental {
       this.service = dataService;
     }
 
+    [LoggingAspect]
     public void Accrue(RentalAgreement agreement) {
 
       // defense! defense! defense!
@@ -27,10 +28,7 @@ namespace AcmeCarRental {
         throw new ArgumentNullException("agreement");
       }
 
-      // logging
-      Console.WriteLine("Accrue: {0}", DateTime.Now);
-      Console.WriteLine("Customer: {0}", agreement.Customer.Id);
-      Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
+      // logging has been put in the aspect
 
       // use dependencies
        transactionManager.Wrapper(() => {
@@ -45,8 +43,6 @@ namespace AcmeCarRental {
          var points = numberOfDays * pointsPerDay;
          service.AddPoints(agreement.Customer.Id, points);
 
-         // logging
-         Console.WriteLine("Accrue complete: {0}", DateTime.Now);
        });
     }
   }
