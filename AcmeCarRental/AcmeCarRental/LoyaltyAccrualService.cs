@@ -24,15 +24,10 @@ namespace AcmeCarRental {
     [LoggingAspect]
     [DefensiveProgrammingAspect]
     [TransactionManagementAspect]
+    [ExceptionAspect]
     public void Accrue(RentalAgreement agreement) {
 
-      // defense! defense! defense!
-      if (agreement == null) {
-        throw new ArgumentNullException("agreement");
-      }
-
-      // logging has been put in the aspect
-      // so has transaction management!
+      // everything unrelated to business logic has been put in the aspect
 
       var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
       var numberOfDays = (int)Math.Floor(rentalTimeSpan.TotalDays);
