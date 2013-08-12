@@ -24,18 +24,10 @@ namespace AcmeCarRental {
     [LoggingAspect]
     [DefensiveProgrammingAspect]
     [TransactionManagementAspect]
+    [ExceptionAspect]
     public void Redeem(Invoice invoice, int numberOfDays) {
-      // defense! defense! defense!
-      if (invoice == null) {
-        throw new ArgumentNullException("invoice");
-      }
-      if (numberOfDays <= 0) {
-        throw new ArgumentException("Number of days must be greater than zero.", "numberOfDays");
-      }
-
-      // logging has been put in the aspect
-      // so has transaction management!
-      // use dependencies
+      
+      // everything unrelated to business logic has been put in the aspect
       var pointsPerDay = 10;
       if (invoice.Vehicle.Size >= Size.Luxury) {
         pointsPerDay = 15;
