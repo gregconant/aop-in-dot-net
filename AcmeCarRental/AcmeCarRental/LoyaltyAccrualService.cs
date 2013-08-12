@@ -23,6 +23,7 @@ namespace AcmeCarRental {
 
     [LoggingAspect]
     [DefensiveProgrammingAspect]
+    [TransactionManagementAspect]
     public void Accrue(RentalAgreement agreement) {
 
       // defense! defense! defense!
@@ -31,21 +32,18 @@ namespace AcmeCarRental {
       }
 
       // logging has been put in the aspect
+      // so has transaction management!
 
-      // use dependencies
-       transactionManager.Wrapper(() => {
+      var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
+      var numberOfDays = (int)Math.Floor(rentalTimeSpan.TotalDays);
 
-         var rentalTimeSpan = (agreement.EndDate.Subtract(agreement.StartDate));
-         var numberOfDays = (int)Math.Floor(rentalTimeSpan.TotalDays);
+      var pointsPerDay = 1;
+      if (agreement.Vehicle.Size >= Size.Luxury) {
+        pointsPerDay = 2;
+      }
+      var points = numberOfDays * pointsPerDay;
+      service.AddPoints(agreement.Customer.Id, points);
 
-         var pointsPerDay = 1;
-         if (agreement.Vehicle.Size >= Size.Luxury) {
-           pointsPerDay = 2;
-         }
-         var points = numberOfDays * pointsPerDay;
-         service.AddPoints(agreement.Customer.Id, points);
-
-       });
     }
   }
 }

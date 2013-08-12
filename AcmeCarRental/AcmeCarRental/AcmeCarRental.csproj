@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aspects\DefensiveProgrammingAspect.cs" />
+    <Compile Include="Aspects\TransactionManagementAspect.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\ILoggable.cs" />
     <Compile Include="Entities\Invoice.cs" />

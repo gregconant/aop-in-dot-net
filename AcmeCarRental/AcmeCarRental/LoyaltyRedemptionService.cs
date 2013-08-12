@@ -23,6 +23,7 @@ namespace AcmeCarRental {
 
     [LoggingAspect]
     [DefensiveProgrammingAspect]
+    [TransactionManagementAspect]
     public void Redeem(Invoice invoice, int numberOfDays) {
       // defense! defense! defense!
       if (invoice == null) {
@@ -33,19 +34,17 @@ namespace AcmeCarRental {
       }
 
       // logging has been put in the aspect
-
+      // so has transaction management!
       // use dependencies
-        transactionManager.Wrapper(() => {
-        var pointsPerDay = 10;
-        if (invoice.Vehicle.Size >= Size.Luxury) {
-          pointsPerDay = 15;
-        }
-        var points = numberOfDays * pointsPerDay;
+      var pointsPerDay = 10;
+      if (invoice.Vehicle.Size >= Size.Luxury) {
+        pointsPerDay = 15;
+      }
+      var points = numberOfDays * pointsPerDay;
 
-        service.SubtractPoints(invoice.Customer.Id, points);
-        invoice.Discount = numberOfDays * invoice.CostPerDay;
+      service.SubtractPoints(invoice.Customer.Id, points);
+      invoice.Discount = numberOfDays * invoice.CostPerDay;
 
-      });
     }
   }
 
