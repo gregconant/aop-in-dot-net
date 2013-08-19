@@ -26,6 +26,15 @@ namespace UIThreadingExample {
 
     private void GetNewTweet() {
       var tweet = _twitter.GetTweet();
+      if (InvokeRequired) {
+        this.Invoke(new Action(() => UpdateTweetListBox(tweet)));
+      }
+      else {
+        UpdateTweetListBox(tweet);
+      }
+    }
+
+    private void UpdateTweetListBox(string tweet) {
       listTweets.Items.Add(tweet);
     }
   }
