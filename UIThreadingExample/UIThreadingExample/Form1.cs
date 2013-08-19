@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using UIThreadingExample.Aspects;
 
 namespace UIThreadingExample {
   public partial class Form1 : Form {
@@ -19,21 +20,18 @@ namespace UIThreadingExample {
     protected override void OnLoad(EventArgs e) {
       _twitter = new TwitterService();
     }
+
     private void updateButton_Click(object sender, EventArgs e) {
-      var thread = new Thread(GetNewTweet);
-      thread.Start();
+      GetNewTweet();
     }
 
+    [WorkerThread]
     private void GetNewTweet() {
       var tweet = _twitter.GetTweet();
-      if (InvokeRequired) {
-        this.Invoke(new Action(() => UpdateTweetListBox(tweet)));
-      }
-      else {
-        UpdateTweetListBox(tweet);
-      }
+      UpdateTweetListBox(tweet);
     }
 
+    [UIThread]
     private void UpdateTweetListBox(string tweet) {
       listTweets.Items.Add(tweet);
     }
