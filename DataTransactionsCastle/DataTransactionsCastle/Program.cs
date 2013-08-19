@@ -11,7 +11,7 @@ namespace DataTransactionsCastle {
 
       //var invoiceService = new InvoiceService();
       var invoiceService = proxyGenerator.
-        CreateClassProxy<InvoiceService>(new TransactionWithRetries());
+        CreateClassProxy<InvoiceService>(new TransactionWithRetries(3));
 
       var invoice = new Invoice {
         Id = Guid.NewGuid(),
