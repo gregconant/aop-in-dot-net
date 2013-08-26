@@ -125,7 +125,20 @@ transaction manager\par
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0 Http Modules allow you to put code at the boundaries of ASP.Net pages.\par
 {\pntext\f1\'B7\tab}Have to configure them in web.config\par
 {\pntext\f1\'B7\tab}Once you set up event handlers in your module for BeginRequest and EndRequest, you can inject your own code at these seams.\par
-{\pntext\f1\'B7\tab}tag: Chapter4-03-AspNetBasicModule\par
+\b{\pntext\f1\'B7\tab}tag: Chapter4-03-AspNetBasicModule\b0\par
+\pard\li360\par
+\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720 Real-World Example: Detecting Mobile Users\par
+{\pntext\f1\'B7\tab}Offer a link to your mobile app if they're on a mobile device. Everyone loves that, right???\par
+\pard\li360\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Project: Ch4-MobileBrowserAspNet\par
+\b0{\pntext\f1\'B7\tab}When a user requests a page from a mobile device, present them with a splash page that asks if they want to download the app.\b\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0 We have to make sure that the splash page that is displayed when users request a page doesn't get the call to itself intercepted, and that when they're redirected to the original requested page, they don't get the splash page again.\par
+{\pntext\f1\'B7\tab}And to make sure they don't get the splash page before EVERY page. Show it only once (based on Cookie). Code in NoThanks click event handler and the HttpModule we created.\par
+\pard\li360\par
+\par
+\par
+\par
 \pard\par
 \par
 \b\fs22\par
@@ -134,13 +147,13 @@ transaction manager\par
 \tab\b0\par
 \par
 \b\par
-\b0\fs28 Chapter 5 - Location Interception\par
-\b\fs22\par
-\par
-\par
-\par
-\b0\fs28 Chapter 6 - Unit Testing of Aspects and Testing How They Are Applied (Using NUnit)\par
+\fs28 Chapter 5 - Location Interception\par
 \fs22\par
+\par
+\par
+\par
+\fs28 Chapter 6 - Unit Testing of Aspects and Testing How They Are Applied (Using NUnit)\par
+\b0\fs22\par
 \par
 \par
 }
