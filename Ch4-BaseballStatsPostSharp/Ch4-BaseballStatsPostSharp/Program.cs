@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ch4_BaseballStatsPostSharp.Aspects;
 
 namespace Ch4_BaseballStatsPostSharp {
 
   public class BaseballStats {
+    [MyBoundaryAspect]
     public decimal GetBattingAverage(string playerName) {
       if (playerName == "Jimmy Rollins") {
         return 0.248M;
