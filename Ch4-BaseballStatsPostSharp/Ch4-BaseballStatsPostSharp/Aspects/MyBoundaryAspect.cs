@@ -9,10 +9,11 @@ namespace Ch4_BaseballStatsPostSharp.Aspects {
   public class MyBoundaryAspect : OnMethodBoundaryAspect {
     public override void OnEntry(MethodExecutionArgs args) {
       Console.WriteLine("Before the method");
+      args.MethodExecutionTag = Guid.NewGuid();
     }
 
     public override void OnSuccess(MethodExecutionArgs args) {
-      Console.WriteLine("After the method");
+      Console.WriteLine("After the method  {0}", args.MethodExecutionTag);
     }
   }
 }

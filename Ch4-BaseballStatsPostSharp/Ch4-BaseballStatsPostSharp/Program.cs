@@ -25,9 +25,12 @@ namespace Ch4_BaseballStatsPostSharp {
   class Program {
     static void Main(string[] args) {
       var stats = new BaseballStats();
-      var player = "Jimmy Rollins";
-      var battingAvg = stats.GetBattingAverage(player);
-      Console.WriteLine("{0}'s Batting Average: {1}", player, battingAvg.ToString());
+      var player1 = "Jimmy Rollins";
+      var battingAvg1 = stats.GetBattingAverage(player1);
+      Console.WriteLine("{0}'s Batting Average: {1}", player1, battingAvg1.ToString());
+      var player2 = "Ryan Howard";
+      var battingAvg2 = stats.GetBattingAverage(player2);
+      Console.WriteLine("{0}'s Batting Average: {1}", player2, battingAvg2.ToString());
 
       Console.ReadKey();
     }
