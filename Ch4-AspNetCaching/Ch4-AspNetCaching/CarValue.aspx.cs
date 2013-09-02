@@ -42,7 +42,7 @@ namespace Ch4_AspNetCaching {
 
       var carValueService = new CarValueService();
 
-      var carValue = carValueService.GetValue(makeId, conditionId, year);
+      var carValue = carValueService.GetValue(new CarValueArgs { MakeId = makeId, ConditionId = conditionId, Year = year });
 
       valueLiteral.Text = carValue.ToString("c");
 

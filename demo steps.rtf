@@ -153,6 +153,11 @@ We use the method name concatenated to the parameter values as the cache key.\pa
 \par
 We make a method in the Aspect that runs OnEntry of the GetValue method that checks the cache and returns that cache's value instead of continuing on to the bounded method. (setting args.ReturnValue and args.FlowBehavior)\par
 \par
+We also change around GetValue so it takes only one parameter, so that adding more criteria to the cache doesn't require a lot of maintenance.\par
+We serialize the args object to JSON and use that as the cache key in the GetCacheKey method.\par
+Now everything is cached correctly.\par
+\b Tag: Chapter4-06-CarValueWithCaching\b0\par
+\par
 \par
 \pard\par
 \par
