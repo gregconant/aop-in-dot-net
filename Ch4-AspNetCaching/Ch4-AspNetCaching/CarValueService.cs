@@ -7,6 +7,7 @@ using PostSharp.Aspects;
 
 namespace Ch4_AspNetCaching {
 
+  [Serializable]
   public class CarValueCacheAspect : OnMethodBoundaryAspect {
     public override void OnSuccess(MethodExecutionArgs args) {
       var key = GetCacheKey(args).ToString();
