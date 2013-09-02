@@ -151,6 +151,7 @@ We make a request to the GetValue service call, which takes 5 seconds. (page: Ca
 We want to cache it using PostSharp's OnMethodBoundaryAspect as a base class.\par
 We use the method name concatenated to the parameter values as the cache key.\par
 \par
+We make a method in the Aspect that runs OnEntry of the GetValue method that checks the cache and returns that cache's value instead of continuing on to the bounded method. (setting args.ReturnValue and args.FlowBehavior)\par
 \par
 \par
 \pard\par
