@@ -237,6 +237,14 @@ We'll do this in a helper class, ProxyHelper.\par
 This helper will inject the interceptor (aspect class) when the service is asked for.\par
 \par
 \par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 4 - PostSharp testing\par
+\b{\pntext\f1\'B7\tab}branch: Chapter6-04-PostSharpAspectTesting\par
+{\pntext\f1\'B7\tab}Project: Chapter6-04-PostSharpAspectTesting\par
+\pard\li360\par
+\b0 PostSharp is a little harder to test, because all aspects written using it are attributes, which are metadata, which don't do anything if not built with the PostSharp compile tool. So if that runtime isn't running, they don't get instantiated and can't be tested. \par
+For the purposes of this first test, we will create a DynamicMethod using Reflection, set it to be the method on the Args we test with, and call the aspect method we're testing using those Args.\b\par
+\pard\b0\fs22\par
+\par
 \par
 \par
 }
