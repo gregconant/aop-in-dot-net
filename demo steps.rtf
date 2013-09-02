@@ -172,9 +172,16 @@ The next demo will show how this can be useful for Lazy Loading.\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
 \pard\b0 Let's say we have a property that you don't want to initialize until you call it the first time (maybe the constructor for that type takes a while to run).\par
 You can write this code yourself using null checks, or use the Lazy<T> type (shown in the project above)\par
+\b\fs24 tag: Chapter5-01-LazyLoadingNoAspects\b0\fs22\par
 The annoying thing about that is you then have to do SlowProperty.Value to get the value out of the lazy property.\par
 Let's use the power/fun of aspects!\par
-\b\par
+\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b\fs24 branch: Chapter5-02-LazyLoadingWithInterception\par
+{\pntext\f1\'B7\tab}Project: Chapter5-02-AOPLazyLoading\par
+\pard\li360\par
+\pard\b0 After we add this aspect, lazy loading works as usual, and we don't have to worry about the null-checking or locking in each property we want to lazy-load. And we don't have to mess with the Lazy<T> syntax. \b\par
+\pard\li360 tag: Chapter5-02-AOPLazyLoading\par
+\pard\fs22\par
 \par
 \par
 \par
