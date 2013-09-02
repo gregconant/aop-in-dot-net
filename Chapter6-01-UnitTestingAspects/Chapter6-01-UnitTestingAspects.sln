@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter6-01-UnitTestingAspects", "Chapter6-01-UnitTestingAspects\Chapter6-01-UnitTestingAspects.csproj", "{56927F34-5F63-44DA-B706-2E45C82C3889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter6-01-UnitTestingAspects.Tests", "Chapter6-01-UnitTestingAspects.Tests\Chapter6-01-UnitTestingAspects.Tests.csproj", "{B483DB51-6B20-4BF8-97D1-5DAB46E7FAF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56927F34-5F63-44DA-B706-2E45C82C3889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56927F34-5F63-44DA-B706-2E45C82C3889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56927F34-5F63-44DA-B706-2E45C82C3889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56927F34-5F63-44DA-B706-2E45C82C3889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B483DB51-6B20-4BF8-97D1-5DAB46E7FAF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B483DB51-6B20-4BF8-97D1-5DAB46E7FAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B483DB51-6B20-4BF8-97D1-5DAB46E7FAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B483DB51-6B20-4BF8-97D1-5DAB46E7FAF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
