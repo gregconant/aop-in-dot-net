@@ -226,8 +226,15 @@ We have the MyLoggingAspect aspect that we want to test, and it has a dependency
 \b0\fs22 2. \fs24 Then we'll add StructureMap so we don't new up all of our dependencies when the app starts.\par
 With StructureMap, we let it control our dependencies.\par
 But we're still not testing the logging aspect intercepting calls to MyService.\par
-\fs22\par
-\par
+\b tag: Chapter6-02-DIButNoAspectTesting\b0\fs22\par
+3. As from before, when we apply DynamicProxy aspect to a class, we need a ProxyGenerator.\par
+We can:\par
+\tab - instantiate the aspect (with its dependencies)\par
+\tab - instantiate the service (with its dependencies)\par
+\tab - apply the aspect to the service\par
+This takes a lot of code. Let's use StructureMap's 'EnrichWith' feature. This registers a method that is then used to substitute an object in place of the normal service. In this case, we'll put an Interceptor there.\par
+We'll do this in a helper class, ProxyHelper.\par
+This helper will inject the interceptor (aspect class) when the service is asked for.\par
 \par
 \par
 \par
