@@ -197,10 +197,20 @@ Same goes for INotifyPropertyChanged (generally for WPF apps)\par
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 1 - Basics\par
 \b{\pntext\f1\'B7\tab}branch: Chapter6-01-BasicUnitTestingAspects\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
-\pard\b0 There are two types of Unit Testing for aspects:\par
+\pard\b0\par
+There are two types of Unit Testing for aspects:\par
 \tab - are they used in the right places (pointcut)\par
 \tab - do they function correctly (advice)\par
 Pointcuts are the easiest to test (see \b AccountControllerTest\b0  in above project)\par
 This just checks to make sure that certain methods contain certain attributes.\par
+\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 2 - Castle DynamicProxy testing\par
+\b{\pntext\f1\'B7\tab}branch: Chapter6-02-CastleDynamicProxyTesting\par
+{\pntext\f1\'B7\tab}Project: Chapter6-02-CastleDynamicProxyTesting\par
+\pard\b0\par
+Aspects written with DynamicProxy implement only IInterceptor. They work just like normal POCOs. We can test them as usual (see project above)\par
+BUT!\par
+They tend to call the method they are attributed to/wrapped around. So if we don't set that up in a test, the test will bomb out.\par
+We'll use Moq to mock out the object that uses the aspect.\fs22\par
 }
  
