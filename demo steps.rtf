@@ -221,6 +221,12 @@ We'll use StructureMap for DI in this example.\par
 \par
 We have the MyLoggingAspect aspect that we want to test, and it has a dependency on ILoggingService. We'll mock it out so we can test it.\par
 1. MyLoggingAspectTest - We're testing that the aspect uses its dependencies correctly (at least enough for this demo), but not that it's getting used on MyService.\par
+\b\fs24 tag: Chapter6-01-CastleAspectTesting-NoDI\par
+\par
+\b0\fs22 2. \fs24 Then we'll add StructureMap so we don't new up all of our dependencies when the app starts.\par
+With StructureMap, we let it control our dependencies.\par
+But we're still not testing the logging aspect intercepting calls to MyService.\par
+\fs22\par
 \par
 \par
 \par
