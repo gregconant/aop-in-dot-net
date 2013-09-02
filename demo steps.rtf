@@ -168,7 +168,7 @@ Now everything is cached correctly.\par
 \par
 The next demo will show how this can be useful for Lazy Loading.\par
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 2 - Using Lazy Loading\par
-\b{\pntext\f1\'B7\tab}branch: Chapter5-02-LazyLoadingWithInterception\par
+\b{\pntext\f1\'B7\tab}branch: Chapter5-01-BasicLocationInterception\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
 \pard\b0 Let's say we have a property that you don't want to initialize until you call it the first time (maybe the constructor for that type takes a while to run).\par
 You can write this code yourself using null checks, or use the Lazy<T> type (shown in the project above)\par
@@ -182,9 +182,13 @@ Let's use the power/fun of aspects!\par
 \pard\b0 After we add this aspect, lazy loading works as usual, and we don't have to worry about the null-checking or locking in each property we want to lazy-load. And we don't have to mess with the Lazy<T> syntax. \b\par
 \pard\li360 tag: Chapter5-02-AOPLazyLoading\par
 \pard\fs22\par
-\par
-\par
-\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 3 - Lazy Loading Fields\par
+\b{\pntext\f1\'B7\tab}branch: Chapter5-03-LazyLoadingFields\par
+{\pntext\f1\'B7\tab}Project: Chapter5-03-LazyLoadingFields\par
+\pard\b0\fs22 We have to use reflection for fields, since they aren't converted to Methods like Properties are.\par
+This will be tough if the type we want to instantiate has complex dependencies or multiple/ non-parameterless constructors.\b\par
+\b0 But it can be done using some DI framework (the book uses StructureMap). I won't put it in this demo but let me know if you care to see it.\par
+\b\fs24 tag: Chapter5-03-LazyLoadingFields\fs22\par
 \par
 \fs28 Chapter 6 - Unit Testing of Aspects and Testing How They Are Applied (Using NUnit)\par
 \b0\fs22\par
