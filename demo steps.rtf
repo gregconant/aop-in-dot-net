@@ -211,6 +211,20 @@ This just checks to make sure that certain methods contain certain attributes.\p
 Aspects written with DynamicProxy implement only IInterceptor. They work just like normal POCOs. We can test them as usual (see project above)\par
 BUT!\par
 They tend to call the method they are attributed to/wrapped around. So if we don't set that up in a test, the test will bomb out.\par
-We'll use Moq to mock out the object that uses the aspect.\fs22\par
+We'll use Moq to mock out the object that uses the aspect.\par
+\fs22\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 3 - Castle DynamicProxy testing with Dependencies\par
+\b{\pntext\f1\'B7\tab}branch: Chapter6-03-CastleAspectTestingWithDependencies\par
+{\pntext\f1\'B7\tab}Project: Chapter6-03-CastleAspectTestingWithDependencies\par
+\pard\b0\fs22 Our example will have a program that calls a service (MyService, implementing IMyService). This service calls another service (MyOtherService, implementing IMyOtherService). MyService also has a Logging Aspect. This aspect calls a service, LoggingService (implements ILoggingService).\par
+We'll use StructureMap for DI in this example.\par
+\par
+We have the MyLoggingAspect aspect that we want to test, and it has a dependency on ILoggingService. We'll mock it out so we can test it.\par
+1. MyLoggingAspectTest - We're testing that the aspect uses its dependencies correctly (at least enough for this demo), but not that it's getting used on MyService.\par
+\par
+\par
+\par
+\par
+\par
 }
  
