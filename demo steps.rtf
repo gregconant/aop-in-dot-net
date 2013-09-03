@@ -243,7 +243,8 @@ This helper will inject the interceptor (aspect class) when the service is asked
 \pard\par
 \b0 PostSharp is a little harder to test, because all aspects written using it are attributes, which are metadata, which don't do anything if not built with the PostSharp compile tool. So if that runtime isn't running, they don't get instantiated and can't be tested. \par
 For the purposes of this first test, we will create a DynamicMethod using Reflection, set it to be the method on the Args we test with, and call the aspect method we're testing using those Args.\b\par
-\b0\fs22\par
+tag: Chapter6-03-PostSharpSimpleAspect\b0\fs22\par
+\par
 \par
 \par
 \par
