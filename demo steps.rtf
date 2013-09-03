@@ -26,8 +26,8 @@ transaction manager\par
 5. Refactor with AOP\par
 \tab branch: \b Chapter2-05-RefactorWithAOP\par
 \b0    \tab - Start with Logging\par
-\pard\ri-1800\tx8640      new class 'LoggingAspect' inheriting from OnMethodBoundaryAspect\par
-\pard    \tab - add this aspect to Accrue and Redeem\par
+     new class 'LoggingAspect' inheriting from OnMethodBoundaryAspect\par
+   \tab - add this aspect to Accrue and Redeem\par
    \tab - tag: \b Chapter2-05-BasicMethodLoggingWithAOP\par
 \b0        - doesn't give a lot of detail about the arguments\par
    \tab - tag: \b Chapter2-05-BetterMethodLoggingWithAOP\b0\par
@@ -102,7 +102,7 @@ transaction manager\par
 \b0\par
 \par
 \b\fs28 Chapter 4 - Method Interception vs Method Bounding\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 1 - Boundary Aspects\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b0\fs24 1 - Boundary Aspects\par
 \b{\pntext\f1\'B7\tab}branch: Chapter4-01-BoundaryThreadsExample\par
 {\pntext\f1\'B7\tab}Project: Ch4-BaseballStatsPostSharp\par
 \b0\fs22{\pntext\f1\'B7\tab}Running aspects at the boundaries of methods\fs24\par
@@ -110,15 +110,15 @@ transaction manager\par
 \fs22{\pntext\f1\'B7\tab}tag: Chapter4-01-BattingAverageNoAOP\fs24\par
 \fs22{\pntext\f1\'B7\tab}Adding basic MethodBoundary Aspect\fs24\par
 {\pntext\f1\'B7\tab}When to use Method Boundary Aspects and when to use Method Interception?\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li1080 Method Interception allows shared scope across different handlers (as otherwise you'd have a separate boundary method/aspect for On Success, On Exception, On Exit, while these all are handled together in a Method Interception method/aspect)\par
+{\pntext\f1\'B7\tab}Method Interception allows shared scope across different handlers (as otherwise you'd have a separate boundary method/aspect for On Success, On Exception, On Exit, while these all are handled together in a Method Interception method/aspect)\par
 {\pntext\f1\'B7\tab}You could use a field on the Aspect class to share state across methods, but they are statically scoped, so only one Aspect class is created for all instances of a class that uses it.\par
 {\pntext\f1\'B7\tab}It's possible to use a property of the MethodExecutionArgs class (MethodExecutionTag) to share state, but it is fairly limited and not the most convenient. If you need to share a lot of state, you may need a whole class to store in the MethodExecutionTag.\par
 {\pntext\f1\'B7\tab}But! Method Boundary Aspects can be a lot clearer. You don't need the try/catch/finally, or the args.Proceed() call, as each of these can be handled by a separate Method Boundary Aspect.\par
 {\pntext\f1\'B7\tab}\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs22 tag: Chapter4-02-BattingAverageBasicAOP\fs24\par
-\pard\li360\par
+\fs22{\pntext\f1\'B7\tab}tag: Chapter4-02-BattingAverageBasicAOP\fs24\par
+\pard\par
 \par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b 2 - ASP.NET HTTP Module bounding\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b 2 - ASP.NET HTTP Module bounding\par
 {\pntext\f1\'B7\tab}branch: Chapter4-03-ASPNETModules\par
 {\pntext\f1\'B7\tab}Project: Ch4-AspNetHttpModuleDemo\par
 {\pntext\f1\'B7\tab}\par
@@ -126,28 +126,28 @@ transaction manager\par
 {\pntext\f1\'B7\tab}Have to configure them in web.config\par
 {\pntext\f1\'B7\tab}Once you set up event handlers in your module for BeginRequest and EndRequest, you can inject your own code at these seams.\par
 \b{\pntext\f1\'B7\tab}tag: Chapter4-03-AspNetBasicModule\b0\par
-\pard\li360\par
+\pard\par
 \par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Real-World Example: Detecting Mobile Users\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b Real-World Example: Detecting Mobile Users\par
 \b0{\pntext\f1\'B7\tab}Offer a link to your mobile app if they're on a mobile device. Everyone loves that, right???\par
-\pard\li360\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Project: Ch4-MobileBrowserAspNet\par
+\pard\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b Project: Ch4-MobileBrowserAspNet\par
 {\pntext\f1\'B7\tab}Branch: Ch4-02-ASPNetModules\par
-\pard\li360\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0 When a user requests a page from a mobile device, present them with a splash page that asks if they want to download the app.\b\par
+\pard\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b0 When a user requests a page from a mobile device, present them with a splash page that asks if they want to download the app.\b\par
 \b0{\pntext\f1\'B7\tab}We have to make sure that the splash page that is displayed when users request a page doesn't get the call to itself intercepted, and that when they're redirected to the original requested page, they don't get the splash page again.\par
 {\pntext\f1\'B7\tab}And to make sure they don't get the splash page before EVERY page. Show it only once (based on Cookie). Code in NoThanks click event handler and the HttpModule we created.\par
 \b{\pntext\f1\'B7\tab}tag: Chapter4-04-AspNetMobileBrowserDemo\b0\par
-\pard\li360\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Real-World Example: Caching\par
+\pard\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b Real-World Example: Caching\par
 \b0{\pntext\f1\'B7\tab}We can use AOP to handle caching as well. We will cache the results of a service call for a Car Value-Finding web app.\par
-\pard\li360\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Project: Ch4-AspNetCaching\par
+\pard\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b Project: Ch4-AspNetCaching\par
 {\pntext\f1\'B7\tab}Branch: Ch4-03-ASPNetCaching\par
-\pard\li360\b0\par
+\pard\b0\par
 We make a request to the GetValue service call, which takes 5 seconds. (page: CarValue.aspx)\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b Tag: Chapter4-05-CarValueNoCaching\par
-\pard\li360\b0\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b Tag: Chapter4-05-CarValueNoCaching\par
+\pard\b0\par
 We want to cache it using PostSharp's OnMethodBoundaryAspect as a base class.\par
 We use the method name concatenated to the parameter values as the cache key.\par
 \par
@@ -158,16 +158,16 @@ We serialize the args object to JSON and use that as the cache key in the GetCac
 Now everything is cached correctly.\par
 \b Tag: Chapter4-06-CarValueWithCaching\b0\par
 \par
-\pard\b\fs22\par
+\b\fs22\par
 \fs28 Chapter 5 - Location Interception\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 1 - Basics\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b0\fs24 1 - Basics\par
 \b{\pntext\f1\'B7\tab}branch: Chapter5-01-BasicLocationInterception\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
 \pard\b0\par
 \b Properties can also have aspects applied to them (as .NET just compiles them into methods)\par
 \par
 The next demo will show how this can be useful for Lazy Loading.\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 2 - Using Lazy Loading\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b0\fs24 2 - Using Lazy Loading\par
 \b{\pntext\f1\'B7\tab}branch: Chapter5-01-BasicLocationInterception\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
 \pard\b0 Let's say we have a property that you don't want to initialize until you call it the first time (maybe the constructor for that type takes a while to run).\par
@@ -176,13 +176,13 @@ You can write this code yourself using null checks, or use the Lazy<T> type (sho
 The annoying thing about that is you then have to do SlowProperty.Value to get the value out of the lazy property.\par
 Let's use the power/fun of aspects!\par
 \par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b\fs24 branch: Chapter5-02-LazyLoadingWithInterception\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b\fs24 branch: Chapter5-02-LazyLoadingWithInterception\par
 {\pntext\f1\'B7\tab}Project: Chapter5-02-AOPLazyLoading\par
-\pard\li360\par
-\pard\b0 After we add this aspect, lazy loading works as usual, and we don't have to worry about the null-checking or locking in each property we want to lazy-load. And we don't have to mess with the Lazy<T> syntax. \b\par
-\pard\li360 tag: Chapter5-02-AOPLazyLoading\par
-\pard\fs22\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\b0\fs24 3 - Lazy Loading Fields\par
+\pard\par
+\b0 After we add this aspect, lazy loading works as usual, and we don't have to worry about the null-checking or locking in each property we want to lazy-load. And we don't have to mess with the Lazy<T> syntax. \b\par
+tag: Chapter5-02-AOPLazyLoading\par
+\fs22\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b0\fs24 3 - Lazy Loading Fields\par
 \b{\pntext\f1\'B7\tab}branch: Chapter5-03-LazyLoadingFields\par
 {\pntext\f1\'B7\tab}Project: Chapter5-03-LazyLoadingFields\par
 \pard\b0\fs22 We have to use reflection for fields, since they aren't converted to Methods like Properties are.\par
@@ -194,7 +194,7 @@ Same goes for INotifyPropertyChanged (generally for WPF apps)\par
 \par
 \fs28 Chapter 6 - Unit Testing of Aspects and Testing How They Are Applied (Using NUnit)\par
 \b0\fs22\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 1 - Basics\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fs24 1 - Basics\par
 \b{\pntext\f1\'B7\tab}branch: Chapter6-01-BasicUnitTestingAspects\par
 {\pntext\f1\'B7\tab}Project: Chapter5-01-BasicLocationInterception\fs22\par
 \pard\b0\par
@@ -204,7 +204,7 @@ There are two types of Unit Testing for aspects:\par
 Pointcuts are the easiest to test (see \b AccountControllerTest\b0  in above project)\par
 This just checks to make sure that certain methods contain certain attributes.\par
 \par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 2 - Castle DynamicProxy testing\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fs24 2 - Castle DynamicProxy testing\par
 \b{\pntext\f1\'B7\tab}branch: Chapter6-02-CastleDynamicProxyTesting\par
 {\pntext\f1\'B7\tab}Project: Chapter6-02-CastleDynamicProxyTesting\par
 \pard\b0\par
@@ -213,7 +213,7 @@ BUT!\par
 They tend to call the method they are attributed to/wrapped around. So if we don't set that up in a test, the test will bomb out.\par
 We'll use Moq to mock out the object that uses the aspect.\par
 \fs22\par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 3 - Castle DynamicProxy testing with Dependencies\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fs24 3 - Castle DynamicProxy testing with Dependencies\par
 \b{\pntext\f1\'B7\tab}branch: Chapter6-03-CastleAspectTestingWithDependencies\par
 {\pntext\f1\'B7\tab}Project: Chapter6-03-CastleAspectTestingWithDependencies\par
 \pard\b0\fs22 Our example will have a program that calls a service (MyService, implementing IMyService). This service calls another service (MyOtherService, implementing IMyOtherService). MyService also has a Logging Aspect. This aspect calls a service, LoggingService (implements ILoggingService).\par
@@ -237,13 +237,13 @@ We'll do this in a helper class, ProxyHelper.\par
 This helper will inject the interceptor (aspect class) when the service is asked for.\par
 \par
 \par
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\fs24 4 - PostSharp testing\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fs24 4 - PostSharp testing\par
 \b{\pntext\f1\'B7\tab}branch: Chapter6-04-PostSharpAspectTesting\par
 {\pntext\f1\'B7\tab}Project: Chapter6-04-PostSharpAspectTesting\par
-\pard\li360\par
+\pard\par
 \b0 PostSharp is a little harder to test, because all aspects written using it are attributes, which are metadata, which don't do anything if not built with the PostSharp compile tool. So if that runtime isn't running, they don't get instantiated and can't be tested. \par
 For the purposes of this first test, we will create a DynamicMethod using Reflection, set it to be the method on the Args we test with, and call the aspect method we're testing using those Args.\b\par
-\pard\b0\fs22\par
+\b0\fs22\par
 \par
 \par
 \par
