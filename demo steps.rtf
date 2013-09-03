@@ -258,7 +258,29 @@ To inject the dependency, we will use an override of the RuntimeInitialize metho
 \fs18     public override void RuntimeInitialize(System.Reflection.MethodBase method) \{\par
       _loggingService = ObjectFactory.GetInstance<ILoggingService>();\par
     \}\par
-\fs24\par
+\fs24 In our test, we can't pass the mock object into the aspect class like we can in Castle (because it doesn't use Constructor Injection, instead calling out to another service for its dependencies).\par
+We have to pass the mock to StructureMap, instantiate the aspect, and then execute the RuntimeInitialize method of the aspect which we just wrote.\par
+\par
+Unfortunately, now our unit tests for the class that uses that aspect get more cluttered. They have to mock out objects they may not care about, because now even the TESTS have to account for the fact that aspects are being applied to the methods on the classes using those aspects.\par
+Also, in our unit test, we are calling ObjectFactory.Initialize to wire up our mock object, which is a static method. Now we have shared state to worry about in our tests. This object will be registered for every other unit test. Just something to be aware of.\par
+Also unfortunately, in this test we're creating our own MethodExecutionArgs object to pass into the Aspect's OnEntry and OnSuccess methods. We can do this because this class happens to have a public constructor. Other aspect types can use other Arg types that don't have such constructors (LocationInterceptionArgs and MethodInterceptionArgs).\par
+Maybe the best thing to do here is to add another layer of indirection between the aspect and the thing that aspect does. See \b MyThinAspectExample.cs\b0  in the \b Chapter6-05\b0  project above.\par
+We have the aspect just call out to another dependency, IMyCrossCuttingConcern, which can be tested separately of the other classes, and of PostSharp, because it is not tied tightly to an aspect anymore. \par
+And we get our Constructor Injection back!\par
+\par
 \fs22\par
+\par
+\b\fs28 Chapters 7, 8, 9 - Advanced AOP\par
+\fs24\tab\b0 - Happy to do this in the future if there is interest\par
+\tab - Aspect Composition (order/dependencies)\par
+\tab - Difference between proxy and dynamic proxy\par
+\tab - How runtime "weaving" works\par
+\tab - Why use runtime vs compile-time "weaving"\par
+\tab - Postcompiler stuff as far as aspects are concerned\par
+\par
+\tab - Cool things you can do:\par
+\tab   - Multicast aspect attributes so you don't have to add an aspect manually to each method/property you want to use it for\par
+\tab   - Since PostSharp runs at compile-time, you can write code that uses it to check things like that your aspects are used in the right places and won't cause problems\par
+\tab   - Can put expensive operations in code that PostSharp runs so it doesn't slow down at runtime (i.e. Reflection)\fs22\par
 }
  
