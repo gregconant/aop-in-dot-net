@@ -250,7 +250,15 @@ It's more difficult in PostSharp because the aspect constructors are called at c
 So we can't use Constructor Injection.\par
 We go to the dreaded Service Locator pattern!\par
 \fs22\par
-\par
-\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\b\fs24 Project: Chapter6-05-PostSharpTestingWithDI\b0\fs22\par
+\pard\fs24 The classes for MyService, MyOtherService, LoggingService are the same as before with DynamicProxy. The LoggingAspect is different to work with PostSharp:\par
+\tab - No Constructor Injection\par
+\tab - Methods for OnEntry and OnSuccess\par
+To inject the dependency, we will use an override of the RuntimeInitialize method. (It's executed by PostSharp at runtime, before runtime methods like OnEntry or OnSuccess like we're using)\par
+\fs18     public override void RuntimeInitialize(System.Reflection.MethodBase method) \{\par
+      _loggingService = ObjectFactory.GetInstance<ILoggingService>();\par
+    \}\par
+\fs24\par
+\fs22\par
 }
  
