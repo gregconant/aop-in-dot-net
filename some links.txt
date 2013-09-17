@@ -1,0 +1,7 @@
+Design Pattern Automation: http://www.postsharp.net/white-papers/design-pattern-automation
+
+Aspect Oriented Programming: http://www.postsharp.net/white-papers/aop
+
+Postsharp 3.0 Reference: http://doc.postsharp.net/postsharp-3.0/
+
+PostSharp Screencasts: http://vimeo.com/postsharp/videos
