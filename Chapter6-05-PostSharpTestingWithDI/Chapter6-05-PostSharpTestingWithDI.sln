@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter6-05-PostSharpTestingWithDI", "Chapter6-05-PostSharpTestingWithDI\Chapter6-05-PostSharpTestingWithDI.csproj", "{8D23B0E9-4596-4A30-ACBA-BC0FB5D05969}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{68275FD6-F8D6-4442-BCA2-F453B6FBE256}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D23B0E9-4596-4A30-ACBA-BC0FB5D05969}.Debug|x86.ActiveCfg = Debug|x86
+		{8D23B0E9-4596-4A30-ACBA-BC0FB5D05969}.Debug|x86.Build.0 = Debug|x86
+		{8D23B0E9-4596-4A30-ACBA-BC0FB5D05969}.Release|x86.ActiveCfg = Release|x86
+		{8D23B0E9-4596-4A30-ACBA-BC0FB5D05969}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
